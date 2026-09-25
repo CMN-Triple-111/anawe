@@ -1026,6 +1026,50 @@
                 <textarea id="contactMessage" name="entry.928330553" rows="5" class="form-textarea-custom" placeholder="Provide a brief summary of your project, site location, timeline, and statutory requirements..." required></textarea>
               </div>
 
+              <!-- Anti-bot honeypot field (hidden from legitimate users, traps automated bots) -->
+              <div class="security-trap-field" aria-hidden="true" style="display:none !important; visibility:hidden; position:absolute; left:-9999px;">
+                <label for="formBotTrap">Leave this field blank</label>
+                <input type="text" id="formBotTrap" name="user_bot_check_field" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <!-- Interactive Security CAPTCHA Verification -->
+              <div class="captcha-verification-box">
+                <div class="captcha-header-row">
+                  <label for="captchaInput" class="captcha-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span>Security Verification *</span>
+                  </label>
+                  <span class="captcha-hint">Type characters shown</span>
+                </div>
+                <div class="captcha-interactive-row">
+                  <div class="captcha-canvas-wrap">
+                    <canvas id="captchaCanvas" width="160" height="44" aria-label="Security CAPTCHA challenge"></canvas>
+                    <button type="button" id="refreshCaptchaBtn" class="btn-refresh-captcha" title="Generate a new security code" aria-label="Refresh security code">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <polyline points="23 4 23 10 17 10"></polyline>
+                        <polyline points="1 20 1 14 7 14"></polyline>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="captcha-input-wrap">
+                    <input
+                      type="text"
+                      id="captchaInput"
+                      class="form-input-custom captcha-input"
+                      placeholder="Enter code"
+                      autocomplete="off"
+                      maxlength="6"
+                      required
+                    />
+                  </div>
+                </div>
+                <div id="captchaFeedback" class="captcha-feedback hidden" role="alert"></div>
+              </div>
+
               <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
                 <span>Submit Technical Consultation Request</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>

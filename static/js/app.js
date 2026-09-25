@@ -730,16 +730,146 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ==========================================================
-     8. CONTACT FORM SUBMISSION (TARGETING GOOGLE FORMS)
+     8. DYNAMIC SECURITY CAPTCHA & ANTI-BOT ENGINE
   ========================================================== */
   const contactForm = document.getElementById("inquiryForm");
   const formSuccess = document.getElementById("formSuccessMessage");
+  const captchaCanvas = document.getElementById("captchaCanvas");
+  const refreshCaptchaBtn = document.getElementById("refreshCaptchaBtn");
+  const captchaInput = document.getElementById("captchaInput");
+  const captchaFeedback = document.getElementById("captchaFeedback");
+  const botTrap = document.getElementById("formBotTrap");
+  const formRenderTimestamp = Date.now();
 
+  let currentCaptchaCode = "";
+
+  function generateCaptchaCode(length = 6) {
+    // Alphanumeric characters excluding visually ambiguous ones (0, O, I, 1, l)
+    const charset = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    let code = "";
+    for (let i = 0; i < length; i++) {
+      code += charset.charAt(Math.floor(Math.random() * charset.length));
+    }
+    return code;
+  }
+
+  function drawCaptcha() {
+    if (!captchaCanvas) return;
+    const ctx = captchaCanvas.getContext("2d");
+    if (!ctx) return;
+
+    currentCaptchaCode = generateCaptchaCode(6);
+
+    const w = captchaCanvas.width;
+    const h = captchaCanvas.height;
+
+    // Background gradient
+    const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+    bgGrad.addColorStop(0, "#F4F8F5");
+    bgGrad.addColorStop(1, "#E8EFEA");
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, w, h);
+
+    // Random security interference curves
+    for (let i = 0; i < 4; i++) {
+      ctx.strokeStyle = `rgba(12, 69, 36, ${0.12 + Math.random() * 0.2})`;
+      ctx.lineWidth = 1 + Math.random() * 1.5;
+      ctx.beginPath();
+      ctx.moveTo(Math.random() * w, Math.random() * h);
+      ctx.bezierCurveTo(
+        Math.random() * w, Math.random() * h,
+        Math.random() * w, Math.random() * h,
+        Math.random() * w, Math.random() * h
+      );
+      ctx.stroke();
+    }
+
+    // Random security noise dots
+    for (let i = 0; i < 28; i++) {
+      ctx.fillStyle = `rgba(201, 138, 44, ${0.2 + Math.random() * 0.35})`;
+      ctx.beginPath();
+      ctx.arc(Math.random() * w, Math.random() * h, Math.random() * 1.8, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Distorted security characters
+    const palette = ["#0C4524", "#15733F", "#C98A2C", "#1E6B3A", "#09331B"];
+    const charSpacing = (w - 24) / currentCaptchaCode.length;
+
+    for (let i = 0; i < currentCaptchaCode.length; i++) {
+      const char = currentCaptchaCode[i];
+      const fontSize = Math.floor(21 + Math.random() * 4);
+      ctx.font = `bold ${fontSize}px 'Outfit', sans-serif`;
+      ctx.fillStyle = palette[i % palette.length];
+
+      ctx.save();
+      const x = 12 + i * charSpacing;
+      const y = h / 2 + 7;
+      const angle = (Math.random() - 0.5) * 0.4;
+
+      ctx.translate(x, y);
+      ctx.rotate(angle);
+      ctx.fillText(char, 0, 0);
+      ctx.restore();
+    }
+
+    // Clear previous error state
+    if (captchaFeedback) {
+      captchaFeedback.classList.add("hidden");
+      captchaFeedback.textContent = "";
+    }
+    if (captchaInput) {
+      captchaInput.classList.remove("error");
+      captchaInput.value = "";
+    }
+  }
+
+  // Initial CAPTCHA rendering
+  drawCaptcha();
+
+  refreshCaptchaBtn?.addEventListener("click", () => {
+    drawCaptcha();
+    captchaInput?.focus();
+  });
+
+  captchaCanvas?.addEventListener("click", () => {
+    drawCaptcha();
+    captchaInput?.focus();
+  });
+
+  captchaInput?.addEventListener("input", () => {
+    captchaInput.classList.remove("error");
+    if (captchaFeedback) {
+      captchaFeedback.classList.add("hidden");
+    }
+  });
+
+  /* ==========================================================
+     8b. CONTACT FORM SUBMISSION WITH SECURITY VERIFICATION
+  ========================================================== */
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      // Basic validation
+      // 1. Anti-bot honeypot check: If the hidden bot field is filled, silently discard
+      if (botTrap && botTrap.value.trim() !== "") {
+        console.warn("Automated bot submission detected and quarantined.");
+        contactForm.reset();
+        drawCaptcha();
+        if (formSuccess) {
+          formSuccess.classList.remove("hidden");
+        }
+        return;
+      }
+
+      // 2. Velocity check: Guard against rapid automated submissions (< 1.2s)
+      const elapsed = Date.now() - formRenderTimestamp;
+      if (elapsed < 1200) {
+        console.warn("Unnatural submission velocity detected.");
+        return;
+      }
+
+      // 3. Form input validation
       const name = document.getElementById("contactName")?.value.trim();
       const email = document.getElementById("contactEmail")?.value.trim();
       const phone = document.getElementById("contactPhone")?.value.trim();
@@ -750,6 +880,20 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      // 4. Interactive CAPTCHA security verification
+      const userEnteredCode = captchaInput?.value.trim().toUpperCase();
+      if (!userEnteredCode || userEnteredCode !== currentCaptchaCode) {
+        if (captchaFeedback) {
+          captchaFeedback.textContent = "Security verification code is incorrect. Please enter the new characters shown.";
+          captchaFeedback.className = "captcha-feedback";
+        }
+        captchaInput?.classList.add("error");
+        captchaInput?.focus();
+        drawCaptcha();
+        return;
+      }
+
+      // 5. Submit UI state
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
       submitBtn.disabled = true;
@@ -769,6 +913,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (handled) return;
         handled = true;
         contactForm.reset();
+        drawCaptcha();
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
         if (formSuccess) {
@@ -780,7 +925,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      // Submit via Fetch with mode: 'no-cors' so it records in Google Forms
+      // 6. Submit via Fetch with mode: 'no-cors' targeting Google Forms
       fetch(googleFormAction, {
         method: "POST",
         mode: "no-cors",
