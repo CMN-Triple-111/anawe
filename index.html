@@ -968,49 +968,62 @@
               Thank you! Your project inquiry has been logged successfully. A member of our technical team will contact you shortly with a formal response.
             </div>
 
-            <form id="inquiryForm">
+            <!-- Hidden Iframe to catch Google Forms post-submission response without page navigation -->
+            <iframe name="hidden_google_form_iframe" id="hidden_google_form_iframe" style="display:none;" aria-hidden="true"></iframe>
+
+            <form
+              id="inquiryForm"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSeVCg6IN3DBwpkV8-JOvllXG7e4V1BowPNu4NS8eF6U-n9NMQ/formResponse"
+              method="POST"
+              target="hidden_google_form_iframe"
+            >
+              <!-- Google Form State Tokens -->
+              <input type="hidden" name="fvv" value="1" />
+              <input type="hidden" name="pageHistory" value="0" />
+              <input type="hidden" name="fbzx" value="-66690225342287502" />
+
               <div class="form-row-2">
                 <div class="form-group-custom">
                   <label for="contactName">Full Name *</label>
-                  <input type="text" id="contactName" class="form-input-custom" placeholder="e.g. Mwansa Banda" required />
+                  <input type="text" id="contactName" name="entry.1627174399" class="form-input-custom" placeholder="e.g. Mwansa Banda" required />
                 </div>
                 <div class="form-group-custom">
                   <label for="contactCompany">Company / Organization</label>
-                  <input type="text" id="contactCompany" class="form-input-custom" placeholder="e.g. Copperbelt Mining Corp" />
+                  <input type="text" id="contactCompany" name="entry.741580677" class="form-input-custom" placeholder="e.g. Copperbelt Mining Corp" />
                 </div>
               </div>
 
               <div class="form-row-2">
                 <div class="form-group-custom">
                   <label for="contactEmail">Corporate Email *</label>
-                  <input type="email" id="contactEmail" class="form-input-custom" placeholder="name@company.com" required />
+                  <input type="email" id="contactEmail" name="entry.625057465" class="form-input-custom" placeholder="name@company.com" required />
                 </div>
                 <div class="form-group-custom">
                   <label for="contactPhone">Phone / WhatsApp *</label>
-                  <input type="tel" id="contactPhone" class="form-input-custom" placeholder="+260 97X XXX XXX" required />
+                  <input type="tel" id="contactPhone" name="entry.1184837972" class="form-input-custom" placeholder="+260 97X XXX XXX" required />
                 </div>
               </div>
 
               <div class="form-group-custom">
                 <label for="contactServiceSelect">Service of Interest</label>
-                <select id="contactServiceSelect" class="form-select-custom">
-                  <option value="ESIA">Environmental & Social Impact Assessment (ESIA / ESIS)</option>
-                  <option value="Monitoring">Environmental Monitoring & Lab Testing (Air, Water, Soil)</option>
-                  <option value="Hazardous Waste">Hazardous Materials & Soil Remediation</option>
-                  <option value="Solid Waste">Solid Waste Management & Skip Bin Hire</option>
-                  <option value="Water Resources">Water Resources, Hydrology & Aquifer Modeling</option>
-                  <option value="Climate ESG">Climate Change, Carbon Footprinting & ESG Advisory</option>
-                  <option value="GIS">Geospatial (GIS), Drone & Boundary Surveys</option>
-                  <option value="Sanitation">Vacuum Tanker Services & Mobile Toilet Rental</option>
-                  <option value="Engineering">Architectural & Civil Engineering Consultancy</option>
-                  <option value="PPE Signage">PPE Supply & SHE Safety Signage</option>
-                  <option value="Other">General Environmental Consultation</option>
+                <select id="contactServiceSelect" name="entry.1391053188" class="form-select-custom">
+                  <option value="Environmental & Social Impact Assessment (ESIA / ESIS)">Environmental & Social Impact Assessment (ESIA / ESIS)</option>
+                  <option value="Environmental Monitoring & Lab Testing (Air, Water, Soil)">Environmental Monitoring & Lab Testing (Air, Water, Soil)</option>
+                  <option value="Hazardous Materials & Soil Remediation">Hazardous Materials & Soil Remediation</option>
+                  <option value="Solid Waste Management & Skip Bin Hire">Solid Waste Management & Skip Bin Hire</option>
+                  <option value="Water Resources, Hydrology & Aquifer Modeling">Water Resources, Hydrology & Aquifer Modeling</option>
+                  <option value="Climate Change, Carbon Footprinting & ESG Advisory">Climate Change, Carbon Footprinting & ESG Advisory</option>
+                  <option value="Geospatial (GIS), Drone & Boundary Surveys">Geospatial (GIS), Drone & Boundary Surveys</option>
+                  <option value="Vacuum Tanker Services & Mobile Sanitation">Vacuum Tanker Services & Mobile Sanitation</option>
+                  <option value="Architectural & Multi-Disciplinary Engineering">Architectural & Multi-Disciplinary Engineering</option>
+                  <option value="PPE Supply & SHE Safety Signage">PPE Supply & SHE Safety Signage</option>
+                  <option value="General Environmental Consultation">General Environmental Consultation</option>
                 </select>
               </div>
 
               <div class="form-group-custom">
                 <label for="contactMessage">Project Scope & Details *</label>
-                <textarea id="contactMessage" rows="5" class="form-textarea-custom" placeholder="Provide a brief summary of your project, site location, timeline, and statutory requirements..." required></textarea>
+                <textarea id="contactMessage" name="entry.928330553" rows="5" class="form-textarea-custom" placeholder="Provide a brief summary of your project, site location, timeline, and statutory requirements..." required></textarea>
               </div>
 
               <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">

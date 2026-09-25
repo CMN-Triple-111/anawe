@@ -730,42 +730,81 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ==========================================================
-     8. CONTACT FORM SUBMISSION
+     8. CONTACT FORM SUBMISSION (TARGETING GOOGLE FORMS)
   ========================================================== */
   const contactForm = document.getElementById("inquiryForm");
   const formSuccess = document.getElementById("formSuccessMessage");
 
   if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
+    contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
       // Basic validation
       const name = document.getElementById("contactName")?.value.trim();
       const email = document.getElementById("contactEmail")?.value.trim();
       const phone = document.getElementById("contactPhone")?.value.trim();
+      const message = document.getElementById("contactMessage")?.value.trim();
 
-      if (!name || !email || !phone) {
-        alert("Please complete all required fields (Name, Email, Phone).");
+      if (!name || !email || !phone || !message) {
+        alert("Please complete all required fields (Full Name, Corporate Email, Phone / WhatsApp, Project Scope).");
         return;
       }
 
-      // Simulate submission
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Processing Request...</span>`;
+      submitBtn.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation: spin 0.8s linear infinite; margin-right: 8px;">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-opacity="0.25"></circle>
+          <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-opacity="1"></path>
+        </svg>
+        <span>Transmitting Project Brief...</span>
+      `;
 
-      setTimeout(() => {
+      const googleFormAction = contactForm.getAttribute("action");
+      const formData = new FormData(contactForm);
+
+      let handled = false;
+      function showSuccessState() {
+        if (handled) return;
+        handled = true;
         contactForm.reset();
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
         if (formSuccess) {
           formSuccess.classList.remove("hidden");
+          formSuccess.scrollIntoView({ behavior: "smooth", block: "center" });
           setTimeout(() => {
             formSuccess.classList.add("hidden");
-          }, 8000);
+          }, 9000);
         }
-      }, 1200);
+      }
+
+      // Submit via Fetch with mode: 'no-cors' so it records in Google Forms
+      fetch(googleFormAction, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+      })
+      .then(() => {
+        showSuccessState();
+      })
+      .catch((err) => {
+        console.warn("Fetch submission issue, executing fallback submission:", err);
+        try {
+          contactForm.submit();
+        } catch (subErr) {
+          console.error("Iframe submission error:", subErr);
+        }
+        setTimeout(showSuccessState, 1000);
+      });
+
+      // Safety timeout: ensure UI updates even on slow network connections
+      setTimeout(() => {
+        if (!handled) {
+          showSuccessState();
+        }
+      }, 4000);
     });
   }
 

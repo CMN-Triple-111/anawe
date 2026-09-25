@@ -1008,6 +1008,11 @@ img {
   to { transform: scale(1); opacity: 1; }
 }
 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .modal-close-btn {
   position: absolute;
   top: 16px;
