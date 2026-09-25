@@ -1,0 +1,10 @@
+Ewana Website/
+├── index.html                   # Master semantic HTML5 interface
+├── assets/
+│   ├── docs/                   # PDF profile & Certificate of Incorporation
+│   ├── images/                 # Active photography, logos & parallax image
+│   └── video/                  # Background video streams & MP4 fallbacks
+└── static/
+    ├── css/                    # ewana-theme.css
+    ├── js/                     # app.js, background_plays.js
+    └── svg/                    # Official vector logos

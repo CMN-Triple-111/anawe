@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ewana Environmental Consulting Limited | Engineering a Sustainable Tomorrow</title>
+  <meta name="description" content="Ewana Environmental Consulting Limited is a multidisciplinary environmental and engineering consultancy firm in Zambia offering ESIA, environmental monitoring, water resource modeling, hazardous waste remediation, and statutory compliance." />
+  <meta name="keywords" content="Environmental Consulting Zambia, ESIA Zambia, ZEMA Compliance, Environmental Engineering Specialists, Water Treatment Engineering, MODFLOW Groundwater Modeling, Hazardous Waste Lusaka, Kitwe Environmental Consultants" />
+  
+  <!-- Favicon / Brand Logo -->
+  <link rel="icon" type="image/svg+xml" href="static/svg/ewana-symbol.svg" />
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="static/css/ewana-theme.css" />
+
+  <!-- Font Awesome for Social Media Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  
+  <!-- Hls.js for Cross-browser video streaming -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+
+<body>
+  <!-- Fixed Background Ambient Video Layer -->
+  <div class="background-video-container">
+    <video
+      class="background-video"
+      id="backgroundVideo"
+      autoplay
+      muted
+      playsinline
+      loop
+    ></video>
+  </div>
+  <div class="video-overlay"></div>
+
+  <!-- Ambient Video Control Bar (Floating) -->
+  <div class="ambient-controls">
+    <button class="btn-ambient-control" id="videoTogglePlay" title="Toggle background video playback">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <rect x="6" y="4" width="4" height="16"/>
+        <rect x="14" y="4" width="4" height="16"/>
+      </svg>
+      <span>Pause Video</span>
+    </button>
+    <button class="btn-ambient-control" id="videoNextTrack" title="Switch video channel">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="5 4 15 12 5 20 5 4"></polygon>
+        <line x1="19" y1="5" x2="19" y2="19"></line>
+      </svg>
+      <span>Next Scenery</span>
+    </button>
+  </div>
+
+  <!-- Top Utility Information Bar -->
+  <div class="top-utility-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <div class="top-info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span><strong>Lusaka HQ:</strong> Chalala Waterworks, Two Sisters Rd</span>
+        </div>
+        <div class="top-info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span><strong>Kitwe Branch:</strong> Riverside, Kitwe</span>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <a href="tel:+260956531844">+260 956 531 844</a>
+        </div>
+        <div class="top-info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <a href="mailto:ewana.ecl@gmail.com">ewana.ecl@gmail.com</a>
+        </div>
+        <span class="top-badge-compliance">ZEMA & EIZ Registered</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Sticky Header -->
+  <header class="header-main">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-logo-wrap" aria-label="Ewana Environmental Consulting Home">
+        <img src="static/svg/ewana-logo-full.svg" alt="Ewana Environmental Consulting Limited Logo" class="brand-svg-logo" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#workflow" class="nav-link">Our Process</a>
+        <!-- Commented out to prevent referencing team members while employed (Uncomment when ready) -->
+        <!-- <a href="#team" class="nav-link">Leadership</a> -->
+        <a href="#gallery" class="nav-link">Fieldwork</a>
+        <a href="#estimator" class="nav-link">Scope Estimator</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contact" class="btn-header-cta">Request Consultation</a>
+        
+        <!-- Mobile Hamburger -->
+        <button class="hamburger" aria-label="Toggle navigation menu" type="button">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <img src="static/svg/ewana-logo-full.svg" alt="Ewana" style="height: 38px;" />
+      <button class="drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="#hero">Home</a>
+      <a href="#about">About Ewana</a>
+      <a href="#services">Consulting Services</a>
+      <a href="#workflow">Consulting Process</a>
+      <!-- Commented out to prevent referencing team members while employed (Uncomment when ready) -->
+      <!-- <a href="#team">Key Leadership Team</a> -->
+      <a href="#gallery">Projects & Fieldwork</a>
+      <a href="#estimator">Project Estimator</a>
+      <a href="#compliance">Certifications & Compliance</a>
+      <a href="#contact">Contact Offices</a>
+    </nav>
+    <div class="drawer-contacts">
+      <p><strong>Lusaka:</strong> +260 956 531 844</p>
+      <p><strong>Kitwe:</strong> +260 972 728 235</p>
+      <p><strong>Email:</strong> ewana.ecl@gmail.com</p>
+      <div style="margin-top: 16px;">
+        <a href="#contact" class="btn-primary" style="width: 100%; justify-content: center;">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <div class="hero-pill-badge">
+              <span class="dot-live"></span>
+              <span>Zambia's Premier Environmental & Engineering Partner</span>
+            </div>
+            
+            <h1 class="hero-title">
+              Engineering a <br>
+              <span class="gradient-text">Sustainable Tomorrow</span> <br>
+              Through Science.
+            </h1>
+            
+            <p class="hero-subtitle">
+              Ewana Environmental Consulting Limited delivers integrated, scientifically backed environmental management, hydrogeological engineering, regulatory ZEMA approvals, and sustainable industrial solutions across Zambia.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#services" class="btn-primary">
+                <span>Explore Solutions</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+
+              <a href="#estimator" class="btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                  <line x1="8" y1="6" x2="16" y2="6"></line>
+                  <line x1="16" y1="14" x2="16" y2="18"></line>
+                  <path d="M16 10h.01"></path>
+                  <path d="M12 10h.01"></path>
+                  <path d="M8 10h.01"></path>
+                  <path d="M12 14h.01"></path>
+                  <path d="M8 14h.01"></path>
+                  <path d="M12 18h.01"></path>
+                  <path d="M8 18h.01"></path>
+                </svg>
+                <span>Project Scope Builder</span>
+              </a>
+
+              <a href="assets/docs/Ewana Environmental Consulting Ltd  V06.pdf" target="_blank" class="btn-secondary" title="Download Official Company Profile PDF">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Download Profile (PDF)</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Right: Interactive Floating Glass Card -->
+          <div class="hero-right">
+            <div class="hero-feature-card glass-card">
+              <div class="feature-card-header">
+                <div class="feature-avatar-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 style="font-size: 1.25rem;">Multi-Disciplinary Rigor</h3>
+                  <span style="font-size: 0.82rem; color: var(--color-accent-gold); font-weight: 700;">ZEMA & EIZ CERTIFIED PRACTICE</span>
+                </div>
+              </div>
+
+              <p class="feature-card-quote">
+                "We transform environmental and engineering complexities into resilient, high-value assets for sustainable industrial operations."
+              </p>
+
+              <div style="border-top: 1px solid var(--glass-border-subtle); padding-top: 16px;">
+                <p style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary); margin-bottom: 8px;">Key Practice Areas:</p>
+                <div class="hero-quick-tags">
+                  <span class="quick-tag">Mining & Smelting ESIA</span>
+                  <span class="quick-tag">Aquifer & MODFLOW</span>
+                  <span class="quick-tag">Stack & Air Testing</span>
+                  <span class="quick-tag">Hazardous Waste</span>
+                  <span class="quick-tag">Soil Remediation</span>
+                  <span class="quick-tag">GIS / GPS Mapping</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Metrics Banner -->
+        <div class="hero-metrics-strip">
+          <div class="metric-pill-card glass-card">
+            <div class="metric-number">10+</div>
+            <div class="metric-label">High-Stakes EIS & EPB Approved</div>
+          </div>
+          <div class="metric-pill-card glass-card">
+            <div class="metric-number">100%</div>
+            <div class="metric-label">ZEMA Regulatory Compliance</div>
+          </div>
+          <div class="metric-pill-card glass-card">
+            <div class="metric-number">10+</div>
+            <div class="metric-label">Integrated Scientific Disciplines</div>
+          </div>
+          <div class="metric-pill-card glass-card">
+            <div class="metric-number">2</div>
+            <div class="metric-label">Strategic Offices (Lusaka & Kitwe)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US & EXECUTIVE OVERVIEW SECTION -->
+    <section class="section-block" id="about">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-badge-pill">Who We Are</span>
+          <h2 class="section-heading-title">A Multi-Disciplinary Environmental & Engineering Force</h2>
+          <p class="section-lead-text">
+            Ewana Environmental Consulting Limited is dedicated to creating sustainable solutions for a rapidly changing world. Beyond standard environmental consulting, we integrate engineering, hydrogeology, industrial supply, and regulatory defense.
+          </p>
+        </div>
+
+        <div class="about-grid-main">
+          <!-- Left: Executive Overview -->
+          <div class="about-executive-card glass-card">
+            <div>
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                <span style="background: rgba(12, 69, 36, 0.1); color: var(--color-primary); padding: 4px 12px; border-radius: var(--radius-pill); font-weight: 700; font-size: 0.8rem;">
+                  EXECUTIVE REMARKS
+                </span>
+                <!-- Personal name commented out per owner request (employee privacy) - Uncomment when ready -->
+                <!-- <span style="font-size: 0.85rem; color: var(--text-muted);">Evans Bowasi, Lead Consultant</span> -->
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Ewana Executive Directorate</span>
+              </div>
+              <h3 style="font-size: 1.8rem; margin-bottom: 14px;">Bridging Industrial Growth with Responsible Stewardship</h3>
+              <p style="margin-bottom: 16px;">
+                Our team brings together specialists in science, engineering, business, and project management to provide tailored solutions that meet the unique needs of each client. By combining knowledge from multiple disciplines, we help organizations navigate complex statutory challenges, optimize operations, and unlock sustainable value.
+              </p>
+              <div class="about-highlight-box">
+                "Whether guiding large-scale mining operations, conducting critical environmental audits, or engineering water treatment infrastructure, we deliver innovative, practical, and impactful solutions."
+              </div>
+            </div>
+
+            <!-- Personal name & photo commented out per owner request (employee privacy) - Uncomment when ready -->
+            <!--
+            <div style="display: flex; align-items: center; gap: 16px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--glass-border-subtle);">
+              <img src="assets/images/team-evans.jpg" alt="Evans Bowasi" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-accent-gold);" />
+              <div>
+                <strong style="color: var(--color-primary); font-size: 1rem; display: block;">Evans Bowasi</strong>
+                <span style="font-size: 0.82rem; color: var(--text-muted);">Lead Consultant & Managing Director | B.Eng. Environmental Engineering (EIZ Member)</span>
+              </div>
+            </div>
+            -->
+            <!-- Corporate fallback badge keeping UI balance & styling identical -->
+            <div style="display: flex; align-items: center; gap: 16px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--glass-border-subtle);">
+              <img src="static/svg/ewana-symbol.svg" alt="Ewana Environmental" style="width: 44px; height: 44px; object-fit: contain;" />
+              <div>
+                <strong style="color: var(--color-primary); font-size: 1rem; display: block;">Executive Directorate</strong>
+                <span style="font-size: 0.82rem; color: var(--text-muted);">Ewana Environmental Consulting Limited</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Vision, Mission & Scope -->
+          <div class="about-vision-mission-card glass-card">
+            <div class="vm-item">
+              <div class="vm-icon-bubble">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <div class="vm-content">
+                <h4>Our Vision</h4>
+                <p>To be the premier global partner for integrated, multi-sector solutions, recognized for transforming environmental and engineering complexities into resilient, high-value assets for a sustainable world.</p>
+              </div>
+            </div>
+
+            <div class="vm-item">
+              <div class="vm-icon-bubble">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <div class="vm-content">
+                <h4>Our Mission</h4>
+                <p>To be a trusted, independent environmental consultant of choice, engineering a sustainable tomorrow. We deliver scientifically based, integrated technical solutions that help clients navigate complex regulatory, social, and sustainability challenges.</p>
+              </div>
+            </div>
+
+            <div class="vm-item">
+              <div class="vm-icon-bubble">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </div>
+              <div class="vm-content">
+                <h4>Regulatory Standing</h4>
+                <p>Fully compliant with ZEMA (Zambia Environmental Management Agency), registered with PACRA (Certificate of Incorporation), tax compliant with ZRA TPIN, and adhering to international ISO 14001:2015 frameworks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 Core Values Grid -->
+        <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 28px;">Our Guiding Core Values</h3>
+        <div class="values-grid-6">
+          <div class="value-card-item glass-card">
+            <div class="value-card-header">
+              <div class="value-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+              <h4>Technical Excellence</h4>
+            </div>
+            <p>Delivering precise, science-based, and practical solutions grounded in empirical field testing and mathematical rigor.</p>
+          </div>
+
+          <div class="value-card-item glass-card">
+            <div class="value-card-header">
+              <div class="value-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <h4>Integrity</h4>
+            </div>
+            <p>Upholding highest ethical standards, transparency in environmental data, and responsible ecological stewardship.</p>
+          </div>
+
+          <div class="value-card-item glass-card">
+            <div class="value-card-header">
+              <div class="value-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+              <h4>Innovation</h4>
+            </div>
+            <p>Advancing sustainable outcomes through continuous methodology refinement, GIS analytics, and research & development.</p>
+          </div>
+
+          <div class="value-card-item glass-card">
+            <div class="value-card-header">
+              <div class="value-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              </div>
+              <h4>Synergy</h4>
+            </div>
+            <p>Integrating geology, hydrology, environmental science, and civil engineering to reduce risks and maximize project value.</p>
+          </div>
+
+          <div class="value-card-item glass-card">
+            <div class="value-card-header">
+              <div class="value-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <h4>Reliability</h4>
+            </div>
+            <p>Providing consistent, accountable partnership and dependable turnaround across every project feasibility stage.</p>
+          </div>
+
+          <div class="value-card-item glass-card">
+            <div class="value-card-header">
+              <div class="value-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <h4>Client-Driven</h4>
+            </div>
+            <p>Focusing deeply on specific industrial operational needs to deliver compliant, tailored, and economically viable solutions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE SERVICES HUB SECTION -->
+    <section class="section-block" id="services">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-badge-pill">Comprehensive Capabilities</span>
+          <h2 class="section-heading-title">Specialized Environmental & Engineering Services</h2>
+          <p class="section-lead-text">
+            From statutory Environmental Impact Assessments for mining facilities to hydrogeological modeling, hazardous containment, and industrial safety supply, explore our complete technical scope.
+          </p>
+        </div>
+
+        <!-- Filter Navigation Tabs -->
+        <div class="service-filter-nav">
+          <button class="service-filter-btn active" data-filter="all">All Services (10)</button>
+          <button class="service-filter-btn" data-filter="management">ESIA & Management</button>
+          <button class="service-filter-btn" data-filter="monitoring">Monitoring & Lab</button>
+          <button class="service-filter-btn" data-filter="waste">Waste & Remediation</button>
+          <button class="service-filter-btn" data-filter="water">Water & Engineering</button>
+          <button class="service-filter-btn" data-filter="climate">Climate & ESG</button>
+          <button class="service-filter-btn" data-filter="specialized">Specialized & Site</button>
+        </div>
+
+        <!-- Services Grid Container -->
+        <div class="services-grid-container" id="servicesGrid">
+          <!-- Dynamically populated via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE DETAIL MODAL DIALOG -->
+    <div class="modal-overlay" id="serviceDetailModal" role="dialog" aria-modal="true">
+      <div class="modal-window">
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
+        <div id="serviceModalBody">
+          <!-- Populated dynamically via app.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 5-STEP CONSULTING WORKFLOW (GNS INSPIRED) -->
+    <section class="section-block workflow-section" id="workflow">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-badge-pill">Proven Delivery Pipeline</span>
+          <h2 class="section-heading-title">Our 5-Stage Consulting & Compliance Workflow</h2>
+          <p class="section-lead-text">
+            Inspired by international engineering best practices, we deploy a disciplined five-phase framework to take complex industrial and mining developments from initial scoping to long-term operational sustainability.
+          </p>
+        </div>
+
+        <!-- Workflow Step Progress Nav -->
+        <div class="workflow-steps-nav">
+          <button class="workflow-step-btn active" data-step="1">
+            <div class="step-circle">1</div>
+            <span class="step-label-nav">Scoping & ToR</span>
+          </button>
+          <button class="workflow-step-btn" data-step="2">
+            <div class="step-circle">2</div>
+            <span class="step-label-nav">Baseline Sampling</span>
+          </button>
+          <button class="workflow-step-btn" data-step="3">
+            <div class="step-circle">3</div>
+            <span class="step-label-nav">Impact Modeling</span>
+          </button>
+          <button class="workflow-step-btn" data-step="4">
+            <div class="step-circle">4</div>
+            <span class="step-label-nav">Permitting & ZEMA</span>
+          </button>
+          <button class="workflow-step-btn" data-step="5">
+            <div class="step-circle">5</div>
+            <span class="step-label-nav">Compliance Audit</span>
+          </button>
+        </div>
+
+        <!-- Active Workflow Display Card -->
+        <div id="workflowDisplay">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- MAINTAINED PARALLAX SECTION (ENHANCED WITH PLANT-WATER BACKGROUND) -->
+    <section class="parallax-section parallax" id="parallax" data-bg="url('assets/images/plant-water-img.jpg')">
+      <div class="container">
+        <div class="parallax-inner-content">
+          <span class="section-badge-pill" style="background: rgba(12, 69, 36, 0.1);">Scientific Precision</span>
+          <h2 class="parallax-tagline-quote">"Every sample matters in understanding our environment."</h2>
+          <p class="parallax-subtext">
+            From detecting heavy metal concentrations in tailings dam effluent to hydrogeological aquifer modeling, Ewana translates raw environmental data into defensible compliance strategies for our clients.
+          </p>
+          
+          <div class="parallax-badges-row">
+            <div class="floating-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>ZEMA Mandated Methodologies</span>
+            </div>
+            <div class="floating-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>EIZ Registered Engineering</span>
+            </div>
+            <div class="floating-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>ISO 14001:2015 EMS Support</span>
+            </div>
+            <div class="floating-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>OHS 2025 Certified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         [TEMPORARILY COMMENTED OUT - EMPLOYEE PRIVACY]
+         KEY LEADERSHIP & TECHNICAL TEAM SECTION
+         To re-enable: Remove the surrounding HTML comment tags (<!- - and - ->).
+         All employee names and portraits are preserved intact below.
+    ========================================================================== -->
+    <div id="team" style="display:none;" aria-hidden="true"></div>
+    <!--
+    <section class="section-block" id="team-section-archive">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-badge-pill">Leadership & Technical Expertise</span>
+          <h2 class="section-heading-title">The Multidisciplinary Minds Behind Ewana</h2>
+          <p class="section-lead-text">
+            Our leadership team combines certified environmental engineers, UNZA mineral scientists, hydrogeologists, and financial coordinators with a proven track record across Zambia's mining, infrastructure, and energy sectors.
+          </p>
+        </div>
+
+        <div class="team-grid-main">
+          [-- Evans Bowasi --]
+          <div class="team-member-card glass-card">
+            <div style="position: absolute; z-index: 100; color: white; right: 10px; top:10px;">
+              <a href="https://www.linkedin.com/in/evans-bowasi-60b440219/" style="text-decoration: none;">
+                <img src="static/svg/linkedin-icon.svg" style="width: 30px; height: 30px; cursor: pointer;" alt="linkedin-icon">
+              </a>
+            </div>
+            <div class="team-photo-wrap">
+              <img src="assets/images/team-evans_.jpg" alt="Evans Bowasi" class="team-photo" />
+              <div class="team-credentials-pill">B.Eng. Environmental Engineering</div>
+            </div>
+            <div class="team-info-body">
+              <h3 class="team-name">Evans Bowasi</h3>
+              <div class="team-role">Lead Consultant & Managing Director</div>
+              <p class="team-bio">
+                Distinguished environmental engineer and leader in sustainable industrial development. Proven track record authoring 10+ comprehensive EIS and Project Briefs for copper smelting plants, leaching facilities, and large-scale fuel depots.
+              </p>
+              <div class="team-accreditations">
+                <span class="accred-tag">EIZ Member</span>
+                <span class="accred-tag">ISO 14001:2015 EMS</span>
+                <span class="accred-tag">OHS Cert 2025</span>
+                <span class="accred-tag">RSM Cert 2024</span>
+              </div>
+            </div>
+          </div>
+
+          [-- Mubanga Mutale --]
+          <div class="team-member-card glass-card">
+            <div style="position: absolute; z-index: 100; display: none; color: white; right: 10px; top:10px;">
+              <a href="" style="text-decoration: none;" target="_blank">
+                <img src="static/svg/linkedin-icon.svg" style="width: 30px; height: 30px; cursor: pointer;" alt="linkedin-icon">
+              </a>
+            </div>
+            <div class="team-photo-wrap">
+              <img src="assets/images/team-mubanga.jpg" alt="Mubanga Mutale" class="team-photo" />
+              <div class="team-credentials-pill">MSc. E2M2 (CBU) | B.Min.Sc. (UNZA)</div>
+            </div>
+            <div class="team-info-body">
+              <h3 class="team-name">Mubanga Mutale</h3>
+              <div class="team-role">Environmental & Geological Consultant</div>
+              <p class="team-bio">
+                Specialized in hydrogeological modeling, mineral exploration, and geochemical sampling to detect heavy metal contamination. Expert in groundwater flow modeling using MODFLOW and GIS applications for sustainable mining.
+              </p>
+              <div class="team-accreditations">
+                <span class="accred-tag">Hydrogeology</span>
+                <span class="accred-tag">MODFLOW Modeling</span>
+                <span class="accred-tag">Geochemical Surveys</span>
+                <span class="accred-tag">Well Logging</span>
+              </div>
+            </div>
+          </div>
+
+          [-- Mukelabai Moola --]
+          <div class="team-member-card glass-card">
+            <div class="social-icons" style="position: absolute; z-index: 100; color: white; right: 10px; top:10px;">
+              <a href="https://www.linkedin.com/in/mukelabai-moola-228949271/" style="text-decoration: none;">
+                <img src="static/svg/linkedin-icon.svg" style="width: 30px; height: 30px; cursor: pointer;" alt="linkedin-icon">
+              </a>
+            </div>
+            <div class="team-photo-wrap">
+              <img src="assets/images/team-moola.jpg" alt="Mukelabai Moola" class="team-photo" />
+              <div class="team-credentials-pill">B.Eng. Environmental Engineering</div>
+            </div>
+            <div class="team-info-body">
+              <h3 class="team-name">Mukelabai Moola</h3>
+              <div class="team-role">Environmental & Water Engineer</div>
+              <p class="team-bio">
+                Specialist in ESG, environmental auditing, ESMS implementation, and hazardous waste disposal. Led large-scale field surveying on the Zambia Railway Lobito Project with Survey123 and advises on coagulation/sedimentation plant control.
+              </p>
+              <div class="team-accreditations">
+                <span class="accred-tag">ESG & ESIA Lead</span>
+                <span class="accred-tag">ZEMA Audits</span>
+                <span class="accred-tag">Survey123 GIS</span>
+              </div>
+            </div>
+          </div>
+
+          [-- Chiko Mathews --]
+          <div class="team-member-card glass-card">
+            <div style="position: absolute; z-index: 100; color: white; right: 10px; top:10px;">
+              <a href="https://www.linkedin.com/in/chiiko-matthew-n-b1836a242/" style="text-decoration: none;">
+                <img src="static/svg/linkedin-icon.svg" style="width: 30px; height: 30px; cursor: pointer;" alt="linkedin-icon">
+              </a>
+            </div>
+            <div class="team-photo-wrap">
+              <img src="assets/images/team-chiiko.png" alt="Chiko Mathews" class="team-photo" />
+              <div class="team-credentials-pill">B.Acc. Accounting & Finance</div>
+            </div>
+            <div class="team-info-body">
+              <h3 class="team-name">Chiko Matthew (ZICALic)</h3>
+              <div class="team-role">Financial Controller & Accountant</div>
+              <p class="team-bio">
+                Brings strong financial stewardship, budget coordination, precision in project accounting, and statutory compliance, ensuring fiscal integrity and transparent resource allocation across all consulting contracts.
+              </p>
+              <div class="team-accreditations">
+                <span class="accred-tag">Fiscal Governance</span>
+                <span class="accred-tag">Budget Control</span>
+                <span class="accred-tag">Project Accounting</span>
+                <span class="accred-tag">Financial Audits</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        [-- Additional Specialists Banner --]
+        <div class="specialists-banner glass-card">
+          <h4>Multidisciplinary Field Specialists & Officers:</h4>
+          <p class="specialists-names">
+            Natasha Musatila (Environmental Specialist) &bull; 
+            Joseph Musangulule (Environmental Engineer) &bull; 
+            Grace Nkandu (Biotechnician) &bull; 
+            Esther Zulu (Geological Officer) &bull; 
+            Micheal Nswana (Field Operations) &bull; 
+            Chawana Melvin Nswana (Executive Director & Founder)
+          </p>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- INTERACTIVE PROJECT SCOPE & CONSULTATION ESTIMATOR -->
+    <section class="section-block" id="estimator">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-badge-pill">Interactive Scoping Tool</span>
+          <h2 class="section-heading-title">Project Scope & Regulatory Timeline Estimator</h2>
+          <p class="section-lead-text">
+            Configure your industry and required environmental service to receive instant indicative delivery timelines, regulatory pathways, and pre-fill your formal consultation request.
+          </p>
+        </div>
+
+        <div class="estimator-grid">
+          <!-- Form Left -->
+          <div class="estimator-form-box glass-card">
+            <h3>Configure Your Project</h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted);">Select your sector parameters below to generate estimated consulting milestones.</p>
+
+            <div class="form-group-custom">
+              <label for="estIndustry">Target Industry / Sector</label>
+              <select id="estIndustry" class="form-select-custom">
+                <option value="mining" selected>Mining, Smelting & Mineral Processing</option>
+                <option value="energy">Energy, Fuel Depots & Petroleum</option>
+                <option value="manufacturing">Industrial Manufacturing & Chemicals</option>
+                <option value="infrastructure">Construction, Roads & Infrastructure</option>
+                <option value="agriculture">Commercial Agriculture & Forestry</option>
+                <option value="other">Real Estate & Commercial Development</option>
+              </select>
+            </div>
+
+            <div class="form-group-custom">
+              <label for="estService">Required Environmental Service</label>
+              <select id="estService" class="form-select-custom">
+                <option value="esia" selected>Comprehensive ESIA / ZEMA Environmental Project Brief</option>
+                <option value="monitoring">Air, Water & Stack Emissions Monitoring</option>
+                <option value="hazardous">Hazardous Waste & Soil Contamination Remediation</option>
+                <option value="water">Hydrogeological Modeling & Water Treatment Advisory</option>
+                <option value="gis">GIS Mapping, Topographic & Drone Surveys</option>
+                <option value="audit">Environmental Protection Fund (EPF) / ISO 14001 Audit</option>
+              </select>
+            </div>
+
+            <div class="form-group-custom">
+              <label for="estRegion">Project Location / Province</label>
+              <select id="estRegion" class="form-select-custom">
+                <option value="Lusaka Province" selected>Lusaka Province (Chalala HQ Support)</option>
+                <option value="Copperbelt Province">Copperbelt Province (Kitwe Branch Support)</option>
+                <option value="North-Western Province (Solwezi / Kalumbila)">North-Western Province (Solwezi / Kalumbila)</option>
+                <option value="Southern Province">Southern Province</option>
+                <option value="Central Province">Central Province</option>
+                <option value="Nationwide Zambia">Nationwide / Multi-Site Operations</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Output Right -->
+          <div class="estimator-output-box glass-card">
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                <h3 style="font-size: 1.4rem;">Scope Breakdown</h3>
+                <span style="font-size: 0.75rem; background: var(--color-primary); color: #FFF; padding: 3px 10px; border-radius: var(--radius-pill); font-weight: 700;">LIVE CALCULATION</span>
+              </div>
+              <div id="estimatorOutput">
+                <!-- Dynamically updated by app.js -->
+              </div>
+            </div>
+
+            <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--glass-border-subtle);">
+              <button id="estimatorApplyBtn" class="btn-primary" style="width: 100%; justify-content: center;">
+                <span>Apply to Consultation Form & Request Quotation</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIELDWORK & PROJECTS PHOTO GALLERY -->
+    <section class="section-block" id="gallery">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-badge-pill">On The Ground</span>
+          <h2 class="section-heading-title">Fieldwork, Sampling & Laboratory Operations</h2>
+          <p class="section-lead-text">
+            Explore authentic images from our environmental monitoring operations, water treatment investigations, air quality stations, and technical site audits across Zambia.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item" data-caption="Water Quality Sampling & In-Situ Physico-Chemical Analysis">
+            <img src="assets/images/water-sampling.jpg" alt="Water Quality Sampling & Testing" loading="lazy" />
+            <div class="gallery-overlay">
+              <div class="gallery-title">Water Testing & In-Situ Analysis</div>
+              <div class="gallery-sub">Laboratory & Field Hydrology</div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-caption="Sedimentation & Aeration Basin Monitoring at Water Treatment Plant">
+            <img src="assets/images/water-treatment.jpg" alt="Water Treatment & Sedimentation Facility" loading="lazy" />
+            <div class="gallery-overlay">
+              <div class="gallery-title">Industrial Effluent & Sedimentation</div>
+              <div class="gallery-sub">Water Resources Engineering</div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-caption="Ambient Air Quality Monitoring & Meteorological Weather Station">
+            <img src="assets/images/air-monitoring.jpg" alt="Anemometer & Air Quality Station" loading="lazy" />
+            <div class="gallery-overlay">
+              <div class="gallery-title">Air Quality & Meteorology</div>
+              <div class="gallery-sub">Ambient & Stack Emissions</div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-caption="Renewable Energy Integration & Carbon Footprint ESG Auditing">
+            <img src="assets/images/climate-energy.jpg" alt="Renewable Wind & Solar Integration" loading="lazy" />
+            <div class="gallery-overlay">
+              <div class="gallery-title">Renewable Energy & ESG Strategy</div>
+              <div class="gallery-sub">Climate Change Advisory</div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-caption="Geospatial Mapping & High-Precision Environmental GIS Surveys">
+            <img src="assets/images/gis-mapping.jpg" alt="GIS & Satellite Surveying" loading="lazy" />
+            <div class="gallery-overlay">
+              <div class="gallery-title">GIS, Drone & Spatial Mapping</div>
+              <div class="gallery-sub">Survey123 & Remote Sensing</div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-caption="Industrial Automation & Engineering Supervisory Inspection">
+            <img src="assets/images/engineering-supervision.jpg" alt="Engineers Supervising Industrial Site" loading="lazy" />
+            <div class="gallery-overlay">
+              <div class="gallery-title">Engineering Site Supervision</div>
+              <div class="gallery-sub">Occupational Safety & Infrastructure</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL FOR GALLERY -->
+    <div class="lightbox-modal" id="galleryLightbox" role="dialog" aria-modal="true">
+      <div class="lightbox-inner">
+        <button class="lightbox-close-btn" id="lightboxClose" aria-label="Close Lightbox">&times;</button>
+        <img id="lightboxImage" src="" alt="Enlarged photo" />
+        <div class="lightbox-caption-text" id="lightboxCaption"></div>
+      </div>
+    </div>
+
+    <!-- ACCREDITATIONS & COMPLIANCE SECTION -->
+    <section class="section-block" id="compliance">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-badge-pill">Statutory Verification</span>
+          <h2 class="section-heading-title">Verified Accreditations & Registrations</h2>
+          <p class="section-lead-text">
+            Ewana Environmental Consulting Limited operates with full corporate and statutory standing under the laws of the Republic of Zambia.
+          </p>
+        </div>
+
+        <div class="compliance-grid">
+          <div class="compliance-card glass-card">
+            <div class="compliance-img-wrap">
+              <img src="assets/images/pacra-logo.png" alt="PACRA Logo" />
+            </div>
+            <h4>PACRA Incorporated</h4>
+            <p>Formally registered company under the Patents and Companies Registration Agency of Zambia.</p>
+          </div>
+
+          <div class="compliance-card glass-card">
+            <div class="compliance-img-wrap">
+              <img src="assets/images/tpin.png" alt="ZRA TPIN" style="max-height: 55px;" />
+            </div>
+            <h4>ZRA TPIN Verified</h4>
+            <p>Fully compliant with Zambia Revenue Authority tax protocols and active compliance clearance.</p>
+          </div>
+
+          <div class="compliance-card glass-card">
+            <div class="compliance-img-wrap">
+              <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(12, 69, 36, 0.1); display: flex; align-items: center; justify-content: center; color: var(--color-primary);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+            </div>
+            <h4>ZEMA Alignment</h4>
+            <p>Authored 10+ approved EIS/EPB submissions under Zambia Environmental Management Agency statutes.</p>
+          </div>
+
+          <div class="compliance-card glass-card">
+            <div class="compliance-img-wrap">
+              <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(201, 138, 44, 0.15); display: flex; align-items: center; justify-content: center; color: var(--color-accent-gold);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+            </div>
+            <h4>EIZ & ISO Standards</h4>
+            <p>Engineering Institution of Zambia licensed lead personnel with ISO 14001:2015 and OHS 2025 certifications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DUAL OFFICE & CONTACT SECTION -->
+    <section class="section-block" id="contact">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-badge-pill">Reach Our Team</span>
+          <h2 class="section-heading-title">Consult with Our Technical Directors</h2>
+          <p class="section-lead-text">
+            With physical presences in both Lusaka and the Copperbelt, our consultants are ready to deploy to your facility or project site across Zambia.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Dual Office Information -->
+          <div class="offices-column">
+            <!-- Lusaka HQ -->
+            <div class="office-branch-card glass-card">
+              <div class="branch-header">
+                <h3>Registered Office (Lusaka)</h3>
+                <span class="branch-badge">HEADQUARTERS</span>
+              </div>
+              <ul class="branch-info-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span>Plot No. 15257/M/C, Chalala Waterworks, Two Sisters Rd, Lusaka, Zambia</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  <div>
+                    <a href="tel:+260978471857">+260 956 531 844</a> / <a href="tel:+260978471857">+260 978 471 857</a>
+                  </div>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <a href="mailto:ewana.ecl@gmail.com">ewana.ecl@gmail.com</a>
+                </li>
+              </ul>
+              <div>
+                <a href="https://wa.me/260956531844?text=Hello%20Ewana%20Environmental%20Consulting,%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="btn-whatsapp-chat">
+                  <i class="fa-brands fa-whatsapp" ></i><span>Chat on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Kitwe Office -->
+            <div class="office-branch-card glass-card">
+              <div class="branch-header">
+                <h3>Kitwe Branch (Copperbelt)</h3>
+                <span class="branch-badge">MINING HUB</span>
+              </div>
+              <ul class="branch-info-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span>Riverside, Kitwe, Copperbelt Province, Zambia</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  <div>
+                    <a href="tel:+260956531844">+260 956 531 844</a> / <a href="tel:+260972728235">+260 972 728 235</a>
+                  </div>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <!-- Personal email commented out per owner request (employee privacy) - Uncomment when ready -->
+                  <!-- <a href="mailto:bowasievans@gmail.com">bowasievans@gmail.com</a> -->
+                  <a href="mailto:ewana.ecl@gmail.com">ewana.ecl@gmail.com</a>
+                </li>
+              </ul>
+              <div>
+                <a href="https://wa.me/260972728235?text=Hello%20Ewana%20Copperbelt%20Office,%20I%20have%20an%20inquiry%20regarding%20environmental%20consultancy." target="_blank" class="btn-whatsapp-chat">
+                   <i class="fa-brands fa-whatsapp" ></i><span>Chat Copperbelt Branch</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Consultation Form -->
+          <div class="contact-form-box glass-card">
+            <h3>Send an Inquiry / Project Brief</h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 24px;">Our Lead Consultant and technical directors review submissions daily and respond within 24 hours.</p>
+
+            <div id="formSuccessMessage" class="form-success-banner hidden">
+              Thank you! Your project inquiry has been logged successfully. A member of our technical team will contact you shortly with a formal response.
+            </div>
+
+            <form id="inquiryForm">
+              <div class="form-row-2">
+                <div class="form-group-custom">
+                  <label for="contactName">Full Name *</label>
+                  <input type="text" id="contactName" class="form-input-custom" placeholder="e.g. Mwansa Banda" required />
+                </div>
+                <div class="form-group-custom">
+                  <label for="contactCompany">Company / Organization</label>
+                  <input type="text" id="contactCompany" class="form-input-custom" placeholder="e.g. Copperbelt Mining Corp" />
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group-custom">
+                  <label for="contactEmail">Corporate Email *</label>
+                  <input type="email" id="contactEmail" class="form-input-custom" placeholder="name@company.com" required />
+                </div>
+                <div class="form-group-custom">
+                  <label for="contactPhone">Phone / WhatsApp *</label>
+                  <input type="tel" id="contactPhone" class="form-input-custom" placeholder="+260 97X XXX XXX" required />
+                </div>
+              </div>
+
+              <div class="form-group-custom">
+                <label for="contactServiceSelect">Service of Interest</label>
+                <select id="contactServiceSelect" class="form-select-custom">
+                  <option value="ESIA">Environmental & Social Impact Assessment (ESIA / ESIS)</option>
+                  <option value="Monitoring">Environmental Monitoring & Lab Testing (Air, Water, Soil)</option>
+                  <option value="Hazardous Waste">Hazardous Materials & Soil Remediation</option>
+                  <option value="Solid Waste">Solid Waste Management & Skip Bin Hire</option>
+                  <option value="Water Resources">Water Resources, Hydrology & Aquifer Modeling</option>
+                  <option value="Climate ESG">Climate Change, Carbon Footprinting & ESG Advisory</option>
+                  <option value="GIS">Geospatial (GIS), Drone & Boundary Surveys</option>
+                  <option value="Sanitation">Vacuum Tanker Services & Mobile Toilet Rental</option>
+                  <option value="Engineering">Architectural & Civil Engineering Consultancy</option>
+                  <option value="PPE Signage">PPE Supply & SHE Safety Signage</option>
+                  <option value="Other">General Environmental Consultation</option>
+                </select>
+              </div>
+
+              <div class="form-group-custom">
+                <label for="contactMessage">Project Scope & Details *</label>
+                <textarea id="contactMessage" rows="5" class="form-textarea-custom" placeholder="Provide a brief summary of your project, site location, timeline, and statutory requirements..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                <span>Submit Technical Consultation Request</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- GLASSMORPHI FOOTER -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="static/svg/ewana-logo-full.svg" alt="Ewana Environmental" style="height: 44px; margin-bottom: 16px; filter: brightness(0) invert(1);" />
+          <p style="font-size: 0.9rem; color: #BFD8C9; margin-bottom: 20px; line-height: 1.6;">
+            Ewana Environmental Consulting Limited is an integrated multidisciplinary consulting firm delivering science-driven solutions across environmental management, engineering design, hydrogeology, and statutory compliance.
+          </p>
+          <span style="font-size: 0.8rem; color: var(--color-accent-gold); font-weight: 700;">
+            Zambia &bull; Lusaka HQ &bull; Kitwe Branch
+          </span>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About Ewana</a></li>
+            <li><a href="#services">Core Services</a></li>
+            <li><a href="#workflow">5-Stage Process</a></li>
+            <!-- Commented out to prevent referencing team members while employed (Uncomment when ready) -->
+            <!-- <li><a href="#team">Leadership Team</a></li> -->
+            <li><a href="#estimator">Scope Estimator</a></li>
+            <li><a href="#contact">Contact Offices</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Core Disciplines</h4>
+          <ul class="footer-links-list">
+            <li><a href="#services">Mining & Smelting ESIA</a></li>
+            <li><a href="#services">Air & Flue Stack Monitoring</a></li>
+            <li><a href="#services">MODFLOW Aquifer Modeling</a></li>
+            <li><a href="#services">Hazardous Waste Remediation</a></li>
+            <li><a href="#services">Topographic & GIS Surveys</a></li>
+            <li><a href="#services">Skip Bin & Vacuum Tanker</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Direct</h4>
+          <p style="font-size: 0.88rem; color: #BFD8C9; margin-bottom: 8px;">
+            <strong>Lusaka:</strong> Plot 15257/M/C Chalala Waterworks<br>
+            Tel: +260 956 531 844
+          </p>
+          <p style="font-size: 0.88rem; color: #BFD8C9; margin-bottom: 14px;">
+            <strong>Kitwe:</strong> Riverside, Kitwe<br>
+            Tel: +260 972 728 235
+          </p>
+          <p style="font-size: 0.88rem; color: #BFD8C9;">
+            <strong>Email:</strong> ewana.ecl@gmail.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 Ewana Environmental Consulting Limited. All Rights Reserved. Incorporated in the Republic of Zambia.
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+          <span>ZEMA Compliant</span>
+          <span>EIZ Registered</span>
+          <span>PACRA Incorporated</span>
+          <span style="opacity: 0.4;">|</span>
+          <span style="color: #BFD8C9;">powered by : <a href="https://www.mattessentials.online/" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent-gold); font-weight: 600; text-decoration: underline;">Matt Essentials Solutions</a></span>
+        </div>
+      </div>
+     
+    </div>
+  </footer> 
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll to top of page">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- JavaScript Modules -->
+  <script src="static/js/background_plays.js"></script>
+  <script src="static/js/app.js"></script>
+</body>
+</html>
