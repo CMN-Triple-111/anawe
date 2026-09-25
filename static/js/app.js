@@ -596,12 +596,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const estimationLogic = {
     timelineMap: {
-      "esia": "6 – 10 Weeks (Including Public Disclosure)",
-      "monitoring": "1 – 2 Weeks (Sampling + Certified Lab Turnaround)",
-      "hazardous": "2 – 4 Weeks (Remediation & Containment Execution)",
-      "water": "3 – 5 Weeks (Aquifer Modeling & Engineering Advisory)",
-      "gis": "1 – 2 Weeks (Drone/GPS Surveys & Spatial Mapping)",
-      "audit": "2 – 3 Weeks (EPF / ISO 14001 Compliance Audit)"
+      "esia": "2 – 4 Months (Including Public Disclosure & Permitting)",
+      "monitoring": "1 – 3 Months (Sampling Cycles + Accredited Lab Turnaround)",
+      "hazardous": "1 – 3 Months (Remediation & Containment Execution)",
+      "water": "1 – 3 Months (Aquifer Modeling & Engineering Advisory)",
+      "gis": "1 – 2 Months (Drone/GPS Surveys & Spatial Mapping)",
+      "audit": "1 – 2 Months (EPF / ISO 14001 Compliance Audit)"
     },
     regulatoryMap: {
       "mining": "ZEMA Category 1 + Mines Safety Department + EIZ Oversight",
@@ -623,7 +623,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const srvText = estimatorService.options[estimatorService.selectedIndex]?.text || "ESIA";
     const indText = estimatorIndustry.options[estimatorIndustry.selectedIndex]?.text || "Mining & Extractive";
 
-    const estTimeline = estimationLogic.timelineMap[srvVal] || "3 – 6 Weeks";
+    const estTimeline = estimationLogic.timelineMap[srvVal] || "1 – 3+ Months (Depending on Project Scale)";
     const estReg = estimationLogic.regulatoryMap[indVal] || "ZEMA Statutory Requirements";
 
     estimatorOutput.innerHTML = `
@@ -649,8 +649,10 @@ document.addEventListener("DOMContentLoaded", () => {
           <span class="result-value">${estReg}</span>
         </div>
         <div class="result-row">
-          <span class="result-label">Assigned Branch:</span>
-          <span class="result-value">${regVal.includes("Copperbelt") || regVal.includes("North-Western") ? "Kitwe Office (Riverside)" : "Lusaka HQ (Chalala)"}</span>
+          <!-- Physical branch offices commented out per request, leaving operational territory -->
+          <!-- <span class="result-label">Assigned Branch:</span><span class="result-value">${regVal.includes("Copperbelt") || regVal.includes("North-Western") ? "Kitwe Office (Riverside)" : "Lusaka HQ (Chalala)"}</span> -->
+          <span class="result-label">Operational Territory:</span>
+          <span class="result-value">${regVal} (Active Operations)</span>
         </div>
       </div>
     `;
