@@ -7,8 +7,6 @@
   const video = document.getElementById("backgroundVideo");
   if (!video) return;
 
-  const isLocalFile = window.location.protocol === "file:";
-
   const playlist = [
     {
       name: "Environmental Ecology & Canopy",
@@ -24,6 +22,13 @@
   let hlsInstance = null;
   let isPlaying = true;
 
+  // Set explicit mobile playback flags on video element
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+
   function loadAndPlayVideo(index) {
     const item = playlist[index];
     if (!item) return;
@@ -31,41 +36,61 @@
     // Fade out slightly during switch
     video.style.opacity = "0.2";
 
-    const useMp4Directly = isLocalFile || !window.Hls || !Hls.isSupported();
-
-    if (!useMp4Directly && video.canPlayType("application/vnd.apple.mpegurl")) {
-      // Safari native HLS
+    // 1. Native HLS support (iOS Safari, iPadOS, macOS Safari)
+    // Mobile Safari does not support MediaSource for HLS, but supports native m3u8
+    if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      if (hlsInstance) {
+        hlsInstance.destroy();
+        hlsInstance = null;
+      }
       video.src = item.hls;
       video.load();
-      video.play().catch(onAutoplayBlocked);
-    } else if (!useMp4Directly && Hls.isSupported()) {
-      // Other browsers with HLS.js
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          isPlaying = true;
+          updatePlayButtonState();
+        }).catch(onAutoplayBlocked);
+      }
+    }
+    // 2. MediaSource Extensions via Hls.js (Chrome, Firefox, Edge, Android)
+    else if (window.Hls && Hls.isSupported()) {
       if (hlsInstance) {
         hlsInstance.destroy();
       }
       hlsInstance = new Hls({
         enableWorker: true,
         lowLatencyMode: false,
-        backBufferLength: 90
+        backBufferLength: 60
       });
 
       hlsInstance.loadSource(item.hls);
       hlsInstance.attachMedia(video);
 
       hlsInstance.on(Hls.Events.MANIFEST_PARSED, function () {
-        video.play().catch(onAutoplayBlocked);
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            isPlaying = true;
+            updatePlayButtonState();
+          }).catch(onAutoplayBlocked);
+        }
       });
 
       hlsInstance.on(Hls.Events.ERROR, function (event, data) {
         if (data.fatal) {
-          console.warn("HLS stream failed, falling back to MP4:", item.mp4);
+          console.warn("HLS stream encountered fatal error:", data.type, data.details);
           hlsInstance.destroy();
-          playMp4(item.mp4);
+          hlsInstance = null;
+          // Switch to alternate stream if fatal
+          if (playlist.length > 1) {
+            currentIndex = (currentIndex + 1) % playlist.length;
+            setTimeout(() => loadAndPlayVideo(currentIndex), 1200);
+          }
         }
       });
     } else {
-      // Direct MP4 fallback
-      playMp4(item.mp4);
+      console.warn("HLS video streaming is not supported on this browser.");
     }
 
     setTimeout(() => {
@@ -73,17 +98,27 @@
     }, 400);
   }
 
-  function playMp4(src) {
-    video.src = src;
-    video.load();
-    video.play().catch(onAutoplayBlocked);
-  }
-
   function onAutoplayBlocked(err) {
-    console.log("Autoplay was prevented by browser:", err);
+    console.log("Autoplay was prevented by mobile browser policy:", err);
     isPlaying = false;
     updatePlayButtonState();
   }
+
+  // Wake up video upon first mobile touch / scroll if autoplay was constrained
+  function onFirstUserInteraction() {
+    if (video.paused) {
+      video.play().then(() => {
+        isPlaying = true;
+        updatePlayButtonState();
+      }).catch(() => {});
+    }
+    window.removeEventListener("touchstart", onFirstUserInteraction);
+    window.removeEventListener("scroll", onFirstUserInteraction);
+    window.removeEventListener("click", onFirstUserInteraction);
+  }
+  window.addEventListener("touchstart", onFirstUserInteraction, { passive: true, once: true });
+  window.addEventListener("scroll", onFirstUserInteraction, { passive: true, once: true });
+  window.addEventListener("click", onFirstUserInteraction, { passive: true, once: true });
 
   video.addEventListener("ended", () => {
     video.style.opacity = "0";
@@ -123,7 +158,7 @@
         video.play().then(() => {
           isPlaying = true;
           updatePlayButtonState();
-        });
+        }).catch((e) => console.log("Play error:", e));
       } else {
         video.pause();
         isPlaying = false;

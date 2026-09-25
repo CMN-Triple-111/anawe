@@ -29,7 +29,10 @@
       autoplay
       muted
       playsinline
+      webkit-playsinline
+      preload="auto"
       loop
+      poster="assets/images/ecology-sustainability.jpg"
     ></video>
   </div>
   <div class="video-overlay"></div>
@@ -123,8 +126,9 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
-  <div class="mobile-drawer" aria-hidden="true">
+  <!-- Mobile Drawer Menu & Backdrop Overlay -->
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
     <div class="drawer-header">
       <img src="static/svg/ewana-logo-full.svg" alt="Ewana" style="height: 38px;" />
       <button class="drawer-close" aria-label="Close menu">&times;</button>

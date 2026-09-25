@@ -43,24 +43,38 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================================================== */
   const hamburger = document.querySelector(".hamburger");
   const mobileDrawer = document.querySelector(".mobile-drawer");
+  const drawerOverlay = document.getElementById("drawerOverlay");
   const drawerClose = document.querySelector(".drawer-close");
   const drawerLinks = document.querySelectorAll(".drawer-nav a");
 
+  function openMobileMenu() {
+    mobileDrawer?.classList.add("open");
+    drawerOverlay?.classList.add("active");
+    hamburger?.classList.add("is-active");
+    document.body.classList.add("no-scroll");
+  }
+
+  function closeMobileMenu() {
+    mobileDrawer?.classList.remove("open");
+    drawerOverlay?.classList.remove("active");
+    hamburger?.classList.remove("is-active");
+    document.body.classList.remove("no-scroll");
+  }
+
   function toggleMobileMenu() {
-    const isOpen = mobileDrawer.classList.toggle("open");
-    hamburger.classList.toggle("is-active", isOpen);
-    document.body.classList.toggle("no-scroll", isOpen);
+    if (mobileDrawer?.classList.contains("open")) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
   }
 
   hamburger?.addEventListener("click", toggleMobileMenu);
-  drawerClose?.addEventListener("click", toggleMobileMenu);
+  drawerClose?.addEventListener("click", closeMobileMenu);
+  drawerOverlay?.addEventListener("click", closeMobileMenu);
 
   drawerLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      mobileDrawer.classList.remove("open");
-      hamburger.classList.remove("is-active");
-      document.body.classList.remove("no-scroll");
-    });
+    link.addEventListener("click", closeMobileMenu);
   });
 
   /* ==========================================================
